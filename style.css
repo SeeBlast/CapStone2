@@ -1,0 +1,110 @@
+:root {
+    --bg-cream: #fdf9ed;
+    --accent-yellow: #ffcc00;
+    --text-dark: #2d2d2d;
+    --white: #ffffff;
+    --gray-light: #f3f4f6;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-cream);
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.app-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    gap: 40px;
+}
+
+.main-content { flex: 2.5; }
+
+/* Header & Search */
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.logo-circle { width: 20px; height: 20px; background: var(--accent-yellow); border-radius: 50%; display: inline-block; margin-right: 10px; }
+.brand { display: flex; align-items: center; }
+
+.search-section input {
+    width: 100%;
+    padding: 18px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Category Pills */
+.categories { display: flex; gap: 12px; margin-bottom: 35px; overflow-x: auto; padding-bottom: 10px; }
+.cat-btn {
+    padding: 10px 24px;
+    border-radius: 25px;
+    border: none;
+    background: var(--white);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+.cat-btn.active, .cat-btn:hover { background: var(--accent-yellow); font-weight: 600; }
+
+/* Menu Grid */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.food-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.food-image { height: 130px; background: var(--gray-light); border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+
+.add-item-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent-yellow);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Sidebar Cart */
+.cart-sidebar {
+    flex: 1;
+    background: var(--white);
+    border-radius: 24px;
+    padding: 30px;
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+}
+
+.empty-cart { text-align: center; padding: 40px 0; color: #9ca3af; }
+.empty-icon { font-size: 3rem; margin-bottom: 10px; }
+
+.checkout-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--accent-yellow);
+    border: none;
+    border-radius: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+}
