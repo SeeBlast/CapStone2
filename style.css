@@ -6,6 +6,12 @@
     --gray-light: #f3f4f6;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-cream);
@@ -13,34 +19,60 @@ body {
     color: var(--text-dark);
 }
 
-.app-container {
+/* Header */
+.header {
     display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.main-content { flex: 2.5; }
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-/* Header & Search */
-.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-.logo-circle { width: 20px; height: 20px; background: var(--accent-yellow); border-radius: 50%; display: inline-block; margin-right: 10px; }
-.brand { display: flex; align-items: center; }
+.location {
+    font-size: 13px;
+    color: gray;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.cart-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Search Section */
+.search-section {
+    padding: 20px 40px;
+}
 
 .search-section input {
     width: 100%;
     padding: 18px;
     border-radius: 15px;
     border: 1px solid #e5e7eb;
-    margin-bottom: 25px;
     font-size: 1rem;
     outline: none;
 }
 
-/* Category Pills */
-.categories { display: flex; gap: 12px; margin-bottom: 35px; overflow-x: auto; padding-bottom: 10px; }
-.cat-btn {
+/* Categories */
+.categories {
+    padding: 0 40px 20px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+}
+
+.categories button {
     padding: 10px 24px;
     border-radius: 25px;
     border: none;
@@ -49,29 +81,59 @@ body {
     white-space: nowrap;
     transition: all 0.2s ease;
 }
-.cat-btn.active, .cat-btn:hover { background: var(--accent-yellow); font-weight: 600; }
 
-/* Menu Grid */
+.categories button:hover,
+.categories button.active {
+    background: var(--accent-yellow);
+    font-weight: 600;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    padding: 0 40px 40px;
+    gap: 40px;
+}
+
+/* Food Grid */
 .food-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 25px;
+    flex: 1;
 }
 
 .food-card {
     background: var(--white);
     border-radius: 20px;
-    padding: 20px;
-    position: relative;
+    overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
 }
 
-.food-image { height: 130px; background: var(--gray-light); border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+.food-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
 
-.add-item-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+.food-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.food-card-content {
+    padding: 15px;
+}
+
+.price-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.add-btn {
     background: var(--accent-yellow);
     border: none;
     width: 35px;
@@ -82,29 +144,51 @@ body {
     font-weight: bold;
 }
 
-/* Sidebar Cart */
-.cart-sidebar {
-    flex: 1;
+.add-btn:hover {
+    opacity: 0.9;
+}
+
+/* Cart Sidebar */
+.cart {
+    width: 300px;
     background: var(--white);
-    border-radius: 24px;
     padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
     height: fit-content;
     position: sticky;
     top: 40px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
 }
 
-.empty-cart { text-align: center; padding: 40px 0; color: #9ca3af; }
-.empty-icon { font-size: 3rem; margin-bottom: 10px; }
+.cart h3 {
+    margin-bottom: 20px;
+}
 
-.checkout-btn {
-    width: 100%;
-    padding: 18px;
-    background: var(--accent-yellow);
-    border: none;
-    border-radius: 15px;
-    margin-top: 25px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1rem;
+.cart-total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--gray-light);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Restaurant Page */
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+.restaurant-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
