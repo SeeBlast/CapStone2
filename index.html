@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FeedMe | Food Delivery</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>FeedMe</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="scrypt.js"></script>
 </head>
 <body>
 
-    <div class="app-container">
-        <main class="main-content">
-            <header class="header">
-                <div class="brand">
-                    <div class="logo-circle"></div>
-                    <h1>FeedMe</h1>
-                </div>
-                <div class="location-info">
-                    📍 Toronto, ON • 🕒 30-40 min
-                </div>
-            </header>
+<header class="header">
+  <div class="logo">
+    🍽 <span>FeedMe</span>
+    <div class="location">📍 Toronto, ON ⏱ 30-40 min</div>
+  </div>
 
-            <div class="search-section">
-                <input type="text" placeholder="Search for food..." id="search-input">
-            </div>
+  <div class="nav-links">
+    <a href="restaurants.html">Restaurants</a>
+  </div>
 
-            <nav class="categories" id="category-filters">
-                <button class="cat-btn active" data-category="all">All</button>
-                <button class="cat-btn" data-category="burgers">Burgers</button>
-                <button class="cat-btn" data-category="pizza">Pizza</button>
-                <button class="cat-btn" data-category="asian">Asian</button>
-                <button class="cat-btn" data-category="italian">Italian</button>
-                <button class="cat-btn" data-category="healthy">Healthy</button>
-            </nav>
+  <div class="cart-icon">
+    🛒 <span id="cartCount">0</span>
+  </div>
+</header>
 
-            <div class="food-grid" id="food-grid">
-                </div>
-        </main>
+<section class="search-section">
+  <input type="text" id="searchInput" placeholder="🔍 What are you craving?" onkeyup="searchFood()">
+</section>
 
-        <aside class="cart-sidebar">
-            <div class="cart-header">
-                <h3>🛒 Your Cart (<span id="cart-count">0</span>)</h3>
-            </div>
-            
-            <div id="cart-items" class="cart-items-container">
-                <div class="empty-cart">
-                    <div class="empty-icon">🍕</div>
-                    <p>Nothing here yet</p>
-                </div>
-            </div>
+<section class="categories">
+  <button onclick="filterCategory('All')" class="active">All</button>
+  <button onclick="filterCategory('Burgers')">Burgers</button>
+  <button onclick="filterCategory('Pizza')">Pizza</button>
+  <button onclick="filterCategory('Asian')">Asian</button>
+  <button onclick="filterCategory('Italian')">Italian</button>
+  <button onclick="filterCategory('Mexican')">Mexican</button>
+  <button onclick="filterCategory('Healthy')">Healthy</button>
+  <button onclick="filterCategory('Desserts')">Desserts</button>
+</section>
 
-            <div class="cart-footer">
-                <div class="summary-line">
-                    <span>Subtotal</span>
-                    <span id="cart-total">$0.00</span>
-                </div>
-                <button class="checkout-btn">Checkout ➜</button>
-            </div>
-        </aside>
+<main class="container">
+  <div class="food-grid" id="foodGrid"></div>
+
+  <aside class="cart">
+    <h3>🛒 Your Cart (<span id="cartCount2">0</span>)</h3>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+      Total: $<span id="cartTotal">0.00</span>
     </div>
+  </aside>
+</main>
 
-    <script src="script.js"></script>
 </body>
 </html>
